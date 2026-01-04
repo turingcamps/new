@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+25&display=swap" rel="stylesheet">
+  <title>Turing Camps</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Jersey 25", sans-serif;
+      background-color: #ffecd1ff;
+    }
+    header {
+      padding: 1%;
+      background-color: #ffecd1ff;
+    }
+    .title {
+      margin-top:2%;
+      font-family: "Jersey 25", sans-serif;
+      font-size: 15vw;
+      text-align: center;
+      position: relative;
+      color:#ff7d00;
+    }
+    .textbox {
+      margin-bottom:4%;
+      margin-top: -13%;
+      font-family: "Jersey 10", sans-serif;
+      font-size: 6vw;
+      text-align: right;
+      margin-right: 28.5%; /* shift right to align 's' with 'g' visually */
+      color:#78290f
+    }
+    .subtitle{
+      color:#15616d;
+    }
+    .button-container {
+      display: flex;
+    }
+    .button-container a {
+      text-align: center;
+      text-decoration: none;
+      flex: 1;
+      font-family: "Jersey 10", sans-serif;
+      padding: 1.7%;
+      font-size: 3vw;
+      border: none;
+      background-color: #15616d;
+      color: #ffecd1ff;
+      cursor: pointer;
+      margin: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .button-container a:nth-child(1){
+      background-color: #78290f;
+    }
+
+    .button-container a:nth-child(3){
+      background-color: #001524ff;
+    }
+
+    .button-container a:nth-child(4){
+      background-color: #ff7d00;
+    }
+
+    .button-container a:hover {
+      transform: translateY(-7px);
+    }
+
+    .subheader{
+      margin-top: 5%;
+      font-family: "Jersey 10", sans-serif; 
+      font-size: 8vw;
+      text-align: center;
+      margin-bottom: 2.5%;
+    }
+
+    #mission{
+      color:#78290f;
+    }
+
+    #courses{
+      color:#15616d;
+    }
+
+    .announcement-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ff7d00;
+      color: #ffecd1ff;
+      padding: 1vw 1vw;
+      margin: 0;
+    }
+
+    .announcement-text {
+      flex: 2;
+      font-size: 3.5vw;
+      text-align: center;
+    }
+
+    .announcement-bar a{
+      color:#001524ff;
+    }
+    .signup-button {
+      flex: 1;
+      background-color: #15616d;
+      font-family: "Jersey 25", sans-serif;
+      border: none;
+      font-size: 3vw;
+      cursor: pointer;
+      padding: 1.5vw 3vw;
+    }
+
+    .signup-button a{
+      text-decoration: none;
+      color: #ffecd1ff;
+    }
+
+    .signup-button:hover {
+      background-color: #001524ff;
+    }
+
+    .mission-section {
+      width:94%;
+      background-color: #78290f;
+      display: flex;
+      flex-direction: column;
+      padding: 3%;
+      flex-wrap: wrap; /* for responsiveness */
+      }
+    
+    .counter-grid{
+      text-align: center;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .counter-grid .counter{
+      display: flex;
+      flex-direction: column;
+      align-content: flex-end;
+    }
+
+
+    .counter-grid h1{
+      font-family: "Jersey 10", sans-serif;
+      color:#ff7d00;
+      font-size: 10vw;
+      font-weight: normal;
+      margin:0;
+    }
+
+    .counter-grid h2{
+      color: #ffecd1ff;
+      font-size: 3.5vw;
+      font-weight: normal;
+      margin:0;
+      margin-top: -1vw;
+    }
+
+    .mission-middle {
+      padding-top: 3vw;
+      color:#ffecd1ff;
+      text-align: left;
+      font-size: 2.5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 5%
+    }
+    
+    .mission-image {
+      display: grid;
+      align-items: center;
+      flex:1;
+    }
+
+    .mission-image img {
+      border-color:#ff7d00;
+      border-width: 10px;
+      border-style: solid;
+      max-width: calc(100% - 20px);
+    }
+    
+    .mission-statement{
+      flex:1;
+      color: #ffecd1ff;
+      background-color: #001524ff;
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .mission-statement p{
+      margin: 0;
+      padding: 3vw;
+    }
+
+    .mission-footer{
+      padding-top: 3vw;
+      display: grid;
+      justify-content: center;
+    }
+
+    .mission-footer button{
+      width: 80vw;
+      font-size: 4vw;
+      padding: 2%;
+    }
+
+    .courses-section {
+      text-align: center;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50% 50%;
+    }
+    
+
+    .course-card {
+      padding: 3vw;
+      background-color: #15616d;
+      display: flex;
+      justify-content: space-between;
+      gap: 3vw;
+      transition: transform 0.3s ease;
+    }
+
+    .course-grid div:nth-child(2){
+      background-color: #001524ff;
+    }
+
+    .course-grid div:nth-child(3){
+      background-color: #001524ff;
+    }
+
+
+    .course-card div:nth-child(2){
+      background-color: transparent;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .course-card-image {
+      flex: 1;
+    }
+
+    .course-card-image{
+      flex: 0;
+    }
+
+    .course-card-image img{
+      height: 15vw;
+    }
+
+
+    .course-card-text{
+      flex: 1;
+    }
+
+    .course-card-text h3 {
+      font: "Jersey 10";
+      font-weight: normal;
+      font-size: 4.5vw;
+      margin:0;
+      margin-top: -0.5vw;
+      color: #ff7d00;
+    }
+
+    .course-card-text p {
+      text-align: left;
+      font-size: 2vw;
+      color: #ffecd1ff;
+      margin:0;
+      margin-top: 1vw;
+    }
+
+    .course-button{
+      padding: 2vw;
+      justify-content: center;
+    }
+
+    .course-button button{
+      font-size: 5vw;
+      padding: 1.5vw 3.5vw;
+    }
+
+
+    button{
+      font-family: "Jersey 10", sans-serif;
+      background-color: #ff7d00;
+      color: #001524ff;
+      border: none;
+      padding: 5%;
+      cursor: pointer;
+      border-radius: 2vw;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-10px);
+      background-color: #15616d;
+      color: #ffecd1ff;
+    }
+
+
+    .contact-section {
+      padding-bottom: 8vw;
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: 10vw;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-item .icon {
+      width: 13.8vw;
+      border-radius: 3.5vw;
+      border-color:#ff7d00;
+      border-width: 1vw;
+      border-style: solid;
+    }
+
+    .contact-item p {
+      margin: 0;
+      margin-top: 1vw;
+      font-size: 2.5vw;
+      color: #15616d;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 25vw;
+      }
+
+      .textbox {
+        margin-right: 0%;
+        margin-top: -22%;
+        font-size: 12vw;
+        text-align: center;
+      }
+
+      .button-container {
+        flex-direction: row;
+      }
+
+      .button-container a {
+        font-size: 6vw;
+        padding: 2vw;
+        padding-top: 3vw
+      }
+
+      .subheader {
+        margin-top: 10vw;
+        font-size: 13vw;
+      }
+
+      .announcement-bar{
+        margin-top: 3vw;
+        padding: 3vw 0;
+        flex-direction: column;
+      }
+      .announcement-text {
+        font-size: 5vw;
+      } 
+
+      .signup-button{
+        margin-top: 2vw;
+        font-size: 7vw;
+      }
+
+      .mission-section {
+        flex-direction: column;
+        padding: 3%;
+      }
+
+      .counter h1{
+        font-size: 15vw;
+      }
+
+      .counter h2{
+        font-size: 6vw;
+      }
+      
+      .mission-middle{
+        padding: 7vw 0;
+        flex-direction: column;
+      }
+
+      .mission-statement p{
+        padding: 3.5vw;
+        font-size: 5vw;
+      }
+
+      .mission-footer{
+        padding-top: 0;
+        padding-bottom: 3vw;
+      }
+
+      .mission-footer a button{
+        font-size: 6vw;
+      }
+
+      .course-grid {
+        margin-top: 8vw;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .course-card {
+        max-width: 100%;
+        height: 100%;
+        font-size: 4vw;
+        padding: 4vw;
+        gap: 0;
+      }
+      .course-card-image {
+        width: 0;
+      }
+
+      .course-card img{
+        visibility: hidden;
+      }
+
+      .course-card h3 {
+        font-size: 8vw;
+      }
+
+      .course-card p {
+        margin-top: 8%;
+        margin-bottom: 4vw;
+        font-size: 5vw;
+      }
+
+      .course-button button{
+        margin-top: 2vw;
+        font-size: 10vw;
+      }
+
+      .contact-methods {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .contact-item .icon {
+        width: 100px;
+        border-width: 2vw;
+      }
+
+      .contact-item p {
+        font-size: 8vw;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">TURING</h1>
+    <div class="textbox"><span id="typewriter"></span><span class="subtitle"> camps</span></div>
+    <div class="button-container">
+      <a href="#mission">Our Mission</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact Us</a>
+      <a href="https://www.gofundme.com/f/turingcamps-diaper-mission">DONATE!</a>
+    </div>
+  </header>
+  <!--
+  <div class="announcement-bar">
+    <div>
+      <span class="announcement-text">🚨 LIMITED SEATS! SIGN-UP FOR SUMMER CAMP!</span>
+    </div>
+    <div>
+      <button class = "signup-button"> <a href = "404" id = "sign-up-announcement">Sign Up!</a></button>
+    </div>
+  </div>
+  -->
+  <div class="subheader" id="mission">_Our Mission_</div>
+  <section class="mission-section">
+    <div class = "counter-grid">
+      <div class="counter">
+        <h1>4,300+</h1>
+        <h2>diapers donated</h2>
+      </div>
+      <div class="counter">
+        <h1>30+</h1>
+        <h2>students taught</h2>
+      </div>
+    </div>
+    
+    <div class="mission-middle">
+      <div class="mission-image">
+      
+        <img src="library1.jpg" alt="Our Mission Photo" />
+  
+      </div>
+      <div class="mission-statement">
+        <p> 
+          TuringCamps is a non-profit tutoring organization dedicated to a dual mission:
+          <br><br>
+          Empowering teens with interactive, accessible coding and technology education while focusing not just on understanding code, but on the development process – how to use it to build anything they wish.
+          <br><br>
+          Also, creating local impact by transforming every dollar raised into diapers, which are distributed to families in need through food pantries and community donation centers.          
+        </p>
+      </div> 
+    </div>
+    <div class="mission-footer">
+      <a href = "404" id = "mission-page"><button>Learn more about our mission and our journey!</button></a>
+    </div>
+  </section>
+  <div class="subheader" id="courses">_Course Offerings_</div>
+  <section class="courses-section">
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-text">
+          <h3>Python Pros</h3>
+          <p>
+            A beginner course for Python, the most used coding language worldwide. 
+            Every concept is taught through hands-on projects, ending with a hackathon (a coding competition).
+          </p>
+        </div>
+        <div class = "course-card-image">
+          <img src = python.png>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-card-text">
+          <h3>Game Dev</h3>
+          <p>Don't just play games, make them! Students will build a video game, from start to finish using Unity, 
+            a professional-grade tool, while learning about game logic, physics, and user input.</p>
+        </div>
+        <div class = "course-card-image">
+          <img src = gamedev.png>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class = "course-card-image">
+          <img src = robotics.png>
+        </div>
+        <div class="course-card-text">
+          <h3>Robotics</h3>
+          <p>A highly interactive course where students write code that controls the physical world. 
+            Using Arduino boards, program sensors, lights, and motors to build
+            hands-on projects.
+          </p>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class = "course-card-image">
+          <img src = cybersecurity.png>
+        </div>
+        <div class="course-card-text">
+          <h3>Cybersecurity</h3>
+          <p>Explore cybersecurity by learning about data, encryption, networks, and ethical hacking. Cybersecurity is a fast-growing field, and this course provides exposure to real-world skills.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class = "course-button">
+      <a href = "404" id = "sign-up"><button>Sign Up!</button></a>
+    </div>
+    -->
+  </section>
+  <div class="subheader" id="contact">_Contact Us_</div>
+  <section class="contact-section"> 
+    <div class="contact-methods">
+      <div class="contact-item">
+        <a href="https://www.instagram.com/turingcamps/"><img src="instagram.jpeg" alt="Instagram" class="icon"></a>
+        <p>@turingcamps</p>
+      </div>
+      <div class="contact-item">
+        <a href="mailto:turingcamps@gmail.com"><img src="gmail.jpg" alt="Email" class="icon"></a>
+        <p>turingcamps@gmail.com</p>
+      </div>
+    </div>
+  </section>
+  
+</body>
+<script>
+  const words = ["summer|", "game dev|", "coding|", "robotics|", "python|",  "tech|"];
+  const typeSpeed = 150;
+  const deleteSpeed = 100;
+  const waitTime = 800;
+  const currentUrl = window.location.href.split("#"); 
+  document.getElementById("mission-page").href = currentUrl[0] + "/mission";
+  //document.getElementById("sign-up").href = currentUrl[0] + "/signup";
+  //document.getElementById("sign-up-announcement").href = currentUrl[0] + "/signup";
+
+  let i = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const element = document.getElementById("typewriter");
+
+  function type() {
+    const currentWord = words[i % words.length];
+
+    if (isDeleting) {
+      charIndex--;
+      element.textContent = currentWord.substring(0, charIndex);
+    } else {
+      element.textContent = currentWord.substring(0, charIndex);
+      charIndex++;
+    }
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      delay = waitTime;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      i++;
+      delay = 500;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  type();
+</script>
+</html>
+
